@@ -1,5 +1,5 @@
 from qiskit import *
-import numpy as np;
+import numpy as np
 
 class QuantumPCA:    
     def __init__(matrix, num_qbits):
@@ -9,18 +9,18 @@ class QuantumPCA:
     max_iterations = 100
     accuracy = 0.1
     shots_per_iteration = 8192
-    rho2 = 0
+    __rho2__ = 0
 
-    def run_circuit(quantum_circuit, state_vector):
+    def __run_circuit__(quantum_circuit, state_vector):
         quantum_circuit.initialize(state_vector, num_qbits-1)
 
         quantum_circuit.h(0)
         quantum_circuit.h(1)
 
-        (th1, ph1, lam1) = qiskit.quantum_info.synthesis.two_qubit_decompose.euler_angles_1q(expm(2*1j*np.pi*rho2))
+        (th1, ph1, lam1) = qiskit.quantum_info.synthesis.two_qubit_decompose.euler_angles_1q(expm(2*1j*np.pi*__rho2__))
         quantum_circuit.cu3(th1, ph1, lam1, 1, 2)
 
-        (th2, ph2, lam2) = qiskit.quantum_info.synthesis.two_qubit_decompose.euler_angles_1q(expm(2*1j*np.pi*rho2*2))
+        (th2, ph2, lam2) = qiskit.quantum_info.synthesis.two_qubit_decompose.euler_angles_1q(expm(2*1j*np.pi*__rho2__*2))
         quantum_circuit.cu3(th2, ph2, lam2, 0, 2)
 
         quantum_circuit.h(0)
@@ -48,7 +48,7 @@ class QuantumPCA:
 
         for i in range(0, max_iterations):
             quantum_circuit = QuantumCircuit(num_qbits, num_qbits)
-            state_vector = run_circuit(quantum_circuit, state_vector)
+            state_vector = __run_circuit__(quantum_circuit, state_vector)
             list_states_vector.append(state_vector)
         
         return list_states_vector
