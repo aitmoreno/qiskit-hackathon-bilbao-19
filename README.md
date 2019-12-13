@@ -20,10 +20,12 @@ Original solution, on https://arxiv.org/abs/1904.05803, is reproduced here.
 
 - [InnoLab Hackathon.pptx](https://github.com/ibonreinoso/qiskit-hackathon-bilbao-19/blob/master/InnoLab%20Hackathon.pptx): Presentation
 
-## Adittional Content
+## Additional Content
 
 - [Seedwork/classical_pca.py](Seedwork/classical_pca.py): classical PCA algorithm, used to compare.
 - [Seedwork/Predictions.ipynb](Seedwork/Predictions.ipynb): future predictions with quantum HHL algorithm, work in progress ...
+- [Seedwork/generate_bloch_spheres.py](Seedwork/generate_bloch_spheres.py): generator of bloch spheres images.
+- [Seedwork/generate_result_approximation.py](Seedwork/generate_result_approximation.py): generator of result approximation images.
 
 ## References
 - Towards Pricing Financial Derivatives with an IBM Quantum Computer: https://arxiv.org/abs/1904.05803
